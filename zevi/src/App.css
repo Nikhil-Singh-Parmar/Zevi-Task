@@ -13,3 +13,44 @@
  margin-top: 30px;
 
 }
+.body{
+    padding-top: 130px;
+    padding-left: 200px;
+   
+}
+.searchbar{
+   
+    box-sizing: border-box;
+    width: 600px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: white;
+
+    
+}
+::placeholder {
+    color: #9d9a9a;
+}
+.input{
+    outline: none;
+    color: #9d9a9a;
+    padding-left: 35px;
+    font-size: 25px;
+    border: none;
+    box-sizing: border-box;
+    width: 550px;
+    height: 35px;
+    border-radius: 12px;
+    background-color: white;
+     padding-top: 22px;
+    padding-bottom: 12px;
+  
+    
+
+}
+.icon{
+    height: 35px;
+    width: 30px;
+    padding-top: 13px;
+    color: #928e8e;
+}
