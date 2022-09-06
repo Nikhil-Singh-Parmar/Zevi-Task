@@ -88,3 +88,41 @@
     padding-left: 200px;
     color: #928e8e;
 }
+.heading{
+    font-size: 40px;
+    margin-top: 25px;
+   
+}
+.header{margin-top: 30px;
+    width: 300px;
+    display: flex;
+    margin-bottom: 20px;
+}
+.heading-1{
+    font-size: 22px;
+   
+}
+.down-arrow{
+    padding-top: 7px;
+    padding-left: 14%;
+    position:absolute;   
+}
+.yellow{
+color: rgb(221, 217, 2);
+}
+.gray{
+    color: #c0bbbb;
+}
+.sidebar{
+    padding-left: 40px;
+    width: 300px;
+    background-color: #928e8e;
+}
+.search-result-body{
+    display: flex;
+}
+.result-data{
+    margin-top: 80px;
+    background-color: pink;
+    width: 100%;
+}

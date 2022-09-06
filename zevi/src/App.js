@@ -1,6 +1,15 @@
 import './App.css';
 import React,{useState}  from 'react'
 import { RiSearchLine } from 'react-icons/ri';
+import { AiFillStar } from 'react-icons/ai';
+import Heading from './Components/Heading'
+import One from './Components/One'
+import Two from './Components/Two'
+import Three from './Components/Three'
+import Four from './Components/Four'
+import Five from './Components/Five' 
+
+
 function App() {
   const [searchData,setsearchData] = useState("");
   const [suggestion,setsuggestion] = useState(false);
@@ -26,7 +35,21 @@ function App() {
      </div>
      <div className='search-result-body'>
         <div className='sidebar'>
-
+          <div className='heading'>Search Results</div>
+          <Heading name={"Brand"}/>
+          <input type='checkbox'/> Mango 
+          <br/>
+          <input type='checkbox'/> H&M
+          <Heading name={"Price Range"}/>
+          <input type='checkbox'/> Under 500
+          <br/>
+          <input type='checkbox'/> 1000 - 3000
+          <Heading name={"Ratings"}/>
+          <input type='checkbox'/> <Five/> <br/>
+          <input type='checkbox'/> <Four/> <br/>
+          <input type='checkbox'/> <Three/> <br/>
+          <input type='checkbox'/> <Two/> <br/>
+          <input type='checkbox'/> <One/>
         </div>
         <div className='result-data'>
 
