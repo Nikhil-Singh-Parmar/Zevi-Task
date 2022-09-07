@@ -7,7 +7,7 @@ import Card from './Card'
 
 
 
-function Result(){
+function Result(props){
     const [carddata, setCard] = useState(data);
     const [searchData,setsearchData] = useState("");
     const [suggestion,setsuggestion] = useState(false);
@@ -47,7 +47,7 @@ function Result(){
        className='input-mini searchbar-mini' 
        type='text' 
        placeholder = 'Search'
-       onChange={e=>setsearchData(e.target.value)}></input>
+       onChange={(e)=>props.setSearchValue(e.target.value)}></input>
       <RiSearchLine 
       className='icon-mini'
        onClick={handleClick}></RiSearchLine>
