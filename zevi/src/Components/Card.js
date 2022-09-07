@@ -34,6 +34,7 @@ function Card(props){
     </div>
     <div className="rating card-item" style={styles2}>
         <Rating val ={props.rating}/> <span className='total-review'>({props.userVoted})</span>
+        
     </div>
     </div>
     </>
