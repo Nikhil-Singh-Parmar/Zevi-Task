@@ -189,3 +189,40 @@ color: rgb(221, 217, 2);
     background-color: rgb(62, 35, 232);
     opacity: 0.5;
 }
+.suggestion-body{
+    width: 740px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 11px;
+    height: 412px;
+    background-color: white;
+    border-radius: 4px;
+}
+.suggest-data{
+    display: flex;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 12px;
+}
+.suggest-text{
+    padding-top: 8px;
+}
+.suggest-heading1{
+    font-size: 20px;
+    padding-left: 37px;
+    padding-top: 20px;
+    font-weight: 600;
+}
+.suggest-heading2{
+    font-size: 20px;
+    padding-left: 37px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    
+}
+.suggest-values{
+    padding-left: 37px;
+    font-size: 12px;
+    padding-top: 4px;
+    font-weight: 400;
+}

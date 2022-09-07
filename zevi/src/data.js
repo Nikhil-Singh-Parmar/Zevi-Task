@@ -1,7 +1,7 @@
 const data = [{
     id:1,
     title:"Denim Jacket",
-    img:"https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    img:"https://images.pexels.com/photos/2072453/pexels-photo-2072453.jpeg?auto=compress&cs=tinysrgb&w=600",
     actualPrice:"799",
     discountPrice:"449",
     rating:"1",

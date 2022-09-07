@@ -1,4 +1,5 @@
-import React,{useState}  from 'react'
+import {useState}  from 'react'
+import SuggestionBox from './SuggestionBox';
 import { RiSearchLine } from 'react-icons/ri';
 function Homepage(props){
   const [searchData,setsearchData] = useState("");
@@ -17,13 +18,17 @@ function Homepage(props){
        className='input ' 
        type='text' 
        placeholder = 'Search'
-       onChange={(e)=>props.setSearchValue(e.target.value)}></input>
+       onChange={(e)=>props.setSearchValue(e.target.value)}
+       onClick={()=>setsuggestion(true)}></input>
       <RiSearchLine 
       className='icon'
-       onClick={()=>props.handleSearch(true)}></RiSearchLine>
+       onClick={()=>props.handleActiveSearch(true)}></RiSearchLine>
      </div>
+     
      </div>
+    {suggestion?<SuggestionBox/>:""}
     </div>
+  
    </div>
     )
 }

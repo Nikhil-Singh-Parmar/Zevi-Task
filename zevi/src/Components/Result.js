@@ -8,37 +8,42 @@ import Card from './Card'
 
 
 function Result(props){
-    const [carddata, setCard] = useState(data);
+    
     const [searchData,setsearchData] = useState("");
     const [suggestion,setsuggestion] = useState(false);
 
     function handleBrand(brand){
-        const filterByBrand = carddata.filter((item)=>{
+        const filterByBrand = props.carddata.filter((item)=>{
          if(brand===item.brand){
            return item;
          }
        })
-       setCard(filterByBrand);
+       props.setCard(filterByBrand);
       }
       function handleClick(){
-        setsuggestion(!suggestion);
+       const filteredData = props.carddata.filter((item)=>{
+        if(props.searchValue===item.title){
+          return item;
+        }
+      })
+      props.setCard(filteredData);
       }
       
       function handleRating(rating){
-        const filterByRating = carddata.filter((item)=>{
+        const filterByRating = props.carddata.filter((item)=>{
          if(rating===item.rating){
            return item;
          }
        })
-       setCard(filterByRating);
+       props.setCard(filterByRating);
       }
       function handlePrice(low,high){
-        const filterByPrice = carddata.filter((item)=>{
+        const filterByPrice = props.carddata.filter((item)=>{
          if(item.discountPrice<=high && item.discountPrice>=low){
            return item;
          }
        })
-       setCard(filterByPrice);
+       props.setCard(filterByPrice);
       }
     return(
         <div>
@@ -71,7 +76,7 @@ function Result(props){
           <input type='checkbox' value="1" onClick={()=>handleRating("1")}/> <Rating val="1"/>
         </div>
         <div className='result-data'>
-       {carddata.map((product) => {
+      { props.carddata.length?props.carddata.map((product) => {
         return(
          <Card 
          key={product.id}
@@ -84,7 +89,7 @@ function Result(props){
          />
         )      
      })
-     }
+      :<h1>No Product Is Found With Given Input</h1>}
         </div>
      </div>
   </div>
