@@ -1,24 +1,47 @@
 import './App.css';
 import React,{useState}  from 'react'
 import { RiSearchLine } from 'react-icons/ri';
-import { AiFillStar } from 'react-icons/ai';
 import Heading from './Components/Heading'
-import One from './Components/One'
-import Two from './Components/Two'
-import Three from './Components/Three'
-import Four from './Components/Four'
-import Five from './Components/Five' 
+import Rating from './Components/Rating'
+import Card from './Components/Card'
+import data from './data';
 
 
 function App() {
   const [searchData,setsearchData] = useState("");
   const [suggestion,setsuggestion] = useState(false);
   const [activeSearch,setactiveSearch] = useState(true);
+  const [carddata, setCard] = useState(data);
+  const [filteredCardData, setFilteredCard] = useState(carddata);
 
   function handleClick(){
     setsuggestion(!suggestion);
-    console.log(suggestion);
   }
+  function handleBrand(brand){
+    const filterByBrand = carddata.filter((item)=>{
+     if(brand===item.brand){
+       return item;
+     }
+   })
+   setCard(filterByBrand);
+  }
+  function handleRating(rating){
+    const filterByRating = carddata.filter((item)=>{
+     if(rating===item.rating){
+       return item;
+     }
+   })
+   setCard(filterByRating);
+  }
+  function handlePrice(low,high){
+    const filterByPrice = carddata.filter((item)=>{
+     if(item.discountPrice<=high && item.discountPrice>=low){
+       return item;
+     }
+   })
+   setCard(filterByPrice);
+  }
+
   return (
     <>
   {activeSearch?
@@ -36,23 +59,47 @@ function App() {
      <div className='search-result-body'>
         <div className='sidebar'>
           <div className='heading'>Search Results</div>
-          <Heading name={"Brand"}/>
-          <input type='checkbox'/> Mango 
+          <Heading name={"BRAND"}/>
+          <input type='checkbox' onClick={()=>handleBrand("Mango")}/> Mango 
           <br/>
-          <input type='checkbox'/> H&M
-          <Heading name={"Price Range"}/>
-          <input type='checkbox'/> Under 500
+          <input type='checkbox' onClick={()=>handleBrand("H&M")}/> H&M
+          <Heading name={"PRICE RANGE"}/>
+          <input type='checkbox'value="500"onClick={()=>{handlePrice(0,500)}}/> Under 500
           <br/>
-          <input type='checkbox'/> 1000 - 3000
-          <Heading name={"Ratings"}/>
-          <input type='checkbox'/> <Five/> <br/>
-          <input type='checkbox'/> <Four/> <br/>
-          <input type='checkbox'/> <Three/> <br/>
-          <input type='checkbox'/> <Two/> <br/>
-          <input type='checkbox'/> <One/>
+          <input type='checkbox' value="1000-4000" onClick={()=>{handlePrice(1000,4000)}}/> 1000 - 4000
+          <Heading name={"RATINGS"}/>
+          <input type='checkbox' value="5" onClick={()=>handleRating("5")}/> <Rating val="5"/> <br/>
+          <input type='checkbox'value="4" onClick={()=>handleRating("4")}/> <Rating val="4"/> <br/>
+          <input type='checkbox' value="3" onClick={()=>handleRating("3")}/> <Rating val="3"/> <br/>
+          <input type='checkbox' value="2" onClick={()=>handleRating("2")} /> <Rating val="2"/> <br/>
+          <input type='checkbox' value="1" onClick={()=>handleRating("1")}/> <Rating val="1"/>
         </div>
         <div className='result-data'>
-
+       {/* <Card 
+       img={"https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"} 
+       title = {"Ripped Jeans"}
+       actualPrice = {1290}
+       discountPrice = {1250}
+       rating = {2}
+       userVoted = {120}
+       clicked ={false}
+       /> */}
+       {carddata.map((product) => {
+        
+        return(
+         <Card 
+         key={product.id}
+         title={product.title}
+         actualPrice={product.actualPrice}
+         discountPrice={product.discountPrice}
+         rating={product.rating}
+         userVoted={product.userVoted}
+         img={product.img}
+         />
+        )
+       
+     })
+     }
         </div>
      </div>
   </div>
